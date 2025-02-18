@@ -5,6 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $displayLimit = $_POST['display_limit'];
 
     $words = str_word_count(strtolower($inputText), 1);
+
+    $stopWords = ["a", "an", "and", "but", "by", "in", "it", "is", "my", "of", "on", "them", "then", "this", "the", "so",];
+    $filteredWords = array_diff($words, $stopWords);
 }
 ?>
 <!DOCTYPE html>
