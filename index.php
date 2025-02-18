@@ -1,4 +1,5 @@
 <?php
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inputText = $_POST['text'];
     $sortingOrder = $_POST['sorting_order']; 
@@ -8,13 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stopWords = ["a", "an", "and", "but", "by", "in", "it", "is", "my", "of", "on", "them", "then", "this", "the", "so",];
     $filteredWords = array_diff($words, $stopWords);
-        
+    
     $wordFrequencies = array_count_values($filteredWords);
     if ($sortingOrder === 'ascending') {
         asort($wordFrequencies);
     } else {
         arsort($wordFrequencies);
     }
+    $limitedWordFrequencies = array_slice($wordFrequencies, 0, $displayLimit);
+
 }
 ?>
 <!DOCTYPE html>
