@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         arsort($wordFrequencies);
     }
+    $limitedWordFrequencies = array_slice($wordFrequencies, 0, $displayLimit);
 
     foreach ($limitedWordFrequencies as $word => $frequency) {
         echo "$word: $frequency<br>";
