@@ -10,6 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filteredWords = array_diff($words, $stopWords);
         
     $wordFrequencies = array_count_values($filteredWords);
+    if ($sortingOrder === 'ascending') {
+        asort($wordFrequencies);
+    } else {
+        arsort($wordFrequencies);
+    }
 }
 ?>
 <!DOCTYPE html>
