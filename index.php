@@ -15,6 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         arsort($wordFrequencies);
     }
+
+    foreach ($limitedWordFrequencies as $word => $frequency) {
+        echo "$word: $frequency<br>";
+    }
+}
 }
 ?>
 <!DOCTYPE html>
