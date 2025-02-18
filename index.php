@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stopWords = ["a", "an", "and", "but", "by", "in", "it", "is", "my", "of", "on", "them", "then", "this", "the", "so",];
     $filteredWords = array_diff($words, $stopWords);
+        
+    $wordFrequencies = array_count_values($filteredWords);
 }
 ?>
 <!DOCTYPE html>
