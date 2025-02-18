@@ -17,6 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $limitedWordFrequencies = array_slice($wordFrequencies, 0, $displayLimit);
 
+    if ($sortingOrder === 'ascending') {
+        asort($wordFrequencies);
+    } else {
+        arsort($wordFrequencies);
+    }
+
+
     foreach ($limitedWordFrequencies as $word => $frequency) {
         echo "$word: $frequency<br>";
     }
